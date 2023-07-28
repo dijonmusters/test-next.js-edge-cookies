@@ -1,15 +1,19 @@
-class MyClass {
-  constructor(protected context: { cookies: () => any }) {}
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
-  protected getCookie(name: string) {
+class MyClass {
+  constructor(protected context: { cookies: () => ReadonlyRequestCookies }) {}
+
+  public getCookie(name: string) {
     return this.context.cookies().get(name)?.value;
   }
 
-  protected setCookie(name: string, value: string) {
+  public setCookie(name: string, value: string) {
     return this.context.cookies().set(name, value);
   }
 }
 
-export default function getInstance(context: { cookies: () => any }) {
+export default function getInstance(context: {
+  cookies: () => ReadonlyRequestCookies;
+}) {
   return new MyClass(context);
 }
