@@ -27,6 +27,9 @@ export default function Home() {
       <form action="supabase">
         <button>Supabase</button>
       </form>
+      <form action="supabase-not-working">
+        <button>Supabase (not working)</button>
+      </form>
     </main>
   );
 }
