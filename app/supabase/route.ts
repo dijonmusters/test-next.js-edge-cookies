@@ -13,7 +13,7 @@ export async function GET() {
   });
 
   const { data, error } = await supabase
-    .from("test")
+    .from("tests")
     .insert({ title: "working" })
     .select();
 
