@@ -1,35 +1,24 @@
+import Link from "next/link";
+
 export const runtime = "edge";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <form action="set-cookie">
-        <button>Set cookie</button>
-      </form>
-      <form action="get-cookie">
-        <button>Get cookie</button>
-      </form>
-      <form action="delete-cookie">
-        <button>Delete cookie</button>
-      </form>
-      <form action="set-cookie-edge">
-        <button>Set cookie edge</button>
-      </form>
-      <form action="get-cookie-edge">
-        <button>Get cookie edge</button>
-      </form>
-      <form action="post-cookie-edge" method="post">
-        <button>Post cookie edge</button>
-      </form>
-      <form action="delete-cookie-edge">
-        <button>Delete cookie edge</button>
-      </form>
-      <form action="supabase">
-        <button>Supabase</button>
-      </form>
-      <form action="supabase-not-working">
-        <button>Supabase (not working)</button>
-      </form>
+      <Link href="/working-node-route-handler">Working Node Route Handler</Link>
+      <Link href="/working-node-server-component">
+        Working Node Server Component
+      </Link>
+      <Link href="/working-edge-route-handler">Working Edge Route Handler</Link>
+      <Link href="/working-edge-server-component">
+        Working Edge Server Component
+      </Link>
+      <Link href="/not-working-edge-route-handler">
+        Not Working Edge Route Handler
+      </Link>
+      <Link href="/not-working-edge-server-component">
+        Not Working Edge Server Component
+      </Link>
     </main>
   );
 }

@@ -3,15 +3,12 @@ import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
 
-export async function Page() {
+export default async function Page() {
   const supabase = createRouteHandlerClient({
     cookies: cookies,
   });
 
-  const { data, error } = await supabase
-    .from("tests")
-    .insert({ title: "working" })
-    .select();
+  const { data, error } = await supabase.from("tests").select();
 
   console.log({ data, error });
 

@@ -4,17 +4,14 @@ import { cookies } from "next/headers";
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-export async function Page() {
+export default async function Page() {
   const cookieStore = cookies();
 
   const supabase = createRouteHandlerClient({
     cookies: () => cookieStore,
   });
 
-  const { data, error } = await supabase
-    .from("tests")
-    .insert({ title: "working" })
-    .select();
+  const { data, error } = await supabase.from("tests").select();
 
   console.log({ data, error });
 

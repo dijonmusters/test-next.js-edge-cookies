@@ -4,15 +4,12 @@ import { cookies } from "next/headers";
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-export async function Page() {
+export default async function Page() {
   const supabase = createServerComponentClient({
     cookies,
   });
 
-  const { data, error } = await supabase
-    .from("tests")
-    .insert({ title: "not working" })
-    .select();
+  const { data, error } = await supabase.from("tests").select();
 
   console.log({ data, error });
 

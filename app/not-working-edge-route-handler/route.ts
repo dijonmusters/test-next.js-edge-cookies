@@ -10,10 +10,7 @@ export async function GET() {
     cookies,
   });
 
-  const { data, error } = await supabase
-    .from("tests")
-    .insert({ title: "not working" })
-    .select();
+  const { data, error } = await supabase.from("tests").select();
 
   console.log({ data, error });
 
