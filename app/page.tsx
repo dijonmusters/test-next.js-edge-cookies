@@ -18,6 +18,9 @@ export default function Home() {
       <form action="get-cookie-edge">
         <button>Get cookie edge</button>
       </form>
+      <form action="post-cookie-edge">
+        <button>Post cookie edge</button>
+      </form>
       <form action="delete-cookie-edge">
         <button>Delete cookie edge</button>
       </form>
