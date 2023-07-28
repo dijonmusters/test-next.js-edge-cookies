@@ -9,7 +9,10 @@ export async function POST() {
   const cookieInstance = getInstance({ cookies });
   await wait(1000);
   console.log(cookieInstance.getCookie("cookie"));
-  return NextResponse.redirect("http://localhost:3000/", {
-    status: 301,
-  });
+  return NextResponse.redirect(
+    "https://test-next-js-edge-cookies.vercel.app/",
+    {
+      status: 301,
+    }
+  );
 }
