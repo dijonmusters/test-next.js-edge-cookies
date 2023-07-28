@@ -6,13 +6,14 @@ export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const cookieStore = cookies();
-
   const supabase = createRouteHandlerClient({
     cookies,
   });
 
-  const { data, error } = await supabase.auth.getSession();
+  const { data, error } = await supabase
+    .from("test")
+    .insert({ title: "not working" })
+    .select();
 
   console.log({ data, error });
 

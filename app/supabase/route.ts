@@ -12,7 +12,10 @@ export async function GET() {
     cookies: () => cookieStore,
   });
 
-  const { data, error } = await supabase.auth.getSession();
+  const { data, error } = await supabase
+    .from("test")
+    .insert({ title: "working" })
+    .select();
 
   console.log({ data, error });
 
