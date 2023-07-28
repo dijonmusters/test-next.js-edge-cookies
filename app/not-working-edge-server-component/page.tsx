@@ -1,13 +1,11 @@
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient({
+export async function Page() {
+  const supabase = createServerComponentClient({
     cookies,
   });
 
@@ -18,5 +16,5 @@ export async function GET() {
 
   console.log({ data, error });
 
-  return redirect("/");
+  return <pre>{JSON.stringify({ data, error }, null, 2)}</pre>;
 }
