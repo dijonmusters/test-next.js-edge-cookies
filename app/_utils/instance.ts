@@ -10,6 +10,12 @@ class MyClass {
   public setCookie(name: string, value: string) {
     return this.context.cookies().set(name, value);
   }
+
+  public deleteCookie(name: string) {
+    return this.context.cookies().set(name, "", {
+      maxAge: 0,
+    });
+  }
 }
 
 export default function getInstance(context: {
