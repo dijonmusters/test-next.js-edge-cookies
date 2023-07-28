@@ -5,7 +5,7 @@ import wait from "../_utils/wait";
 export const runtime = "edge";
 
 export async function GET() {
-  cookies().delete("cookie");
   await wait(1000);
+  cookies().delete("cookie");
   return redirect("/");
 }

@@ -5,7 +5,7 @@ import wait from "../_utils/wait";
 export const runtime = "edge";
 
 export async function GET() {
-  console.log(cookies().getAll());
   await wait(1000);
+  console.log(cookies().getAll());
   return redirect("/");
 }
