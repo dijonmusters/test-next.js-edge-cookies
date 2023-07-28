@@ -5,9 +5,12 @@ import { NextResponse } from "next/server";
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-export async function GET(req: Request) {
+export async function GET(request: Request) {
+  const requestUrl = new URL(request.url);
+  const cookieStore = cookies();
+
   const supabase = createRouteHandlerClient({
-    cookies,
+    cookies: () => cookieStore,
   });
   const { data, error } = await supabase
     .from("tests")
@@ -15,5 +18,5 @@ export async function GET(req: Request) {
 
   console.log({ data, error });
 
-  return NextResponse.json({ data, error });
+  return NextResponse.redirect(requestUrl.origin);
 }
