@@ -24,8 +24,8 @@ export default function Home() {
       <form action="delete-cookie-edge">
         <button>Delete cookie edge</button>
       </form>
-      <form action="supabase" method="post">
-        <button>Delete cookie edge</button>
+      <form action="supabase">
+        <button>Supabase</button>
       </form>
     </main>
   );

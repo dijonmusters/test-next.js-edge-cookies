@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
-export async function POST(req: Request) {
+export async function GET(req: Request) {
   const supabase = createRouteHandlerClient({
     cookies,
   });
