@@ -7,8 +7,8 @@ export const runtime = "edge";
 
 export async function POST() {
   const cookieInstance = getInstance({ cookies });
-  await wait(1000);
-  console.log(cookieInstance.getCookie("cookie"));
+  const value = await cookieInstance.getCookie("cookie");
+  console.log(value);
   return NextResponse.redirect(
     "https://test-next-js-edge-cookies.vercel.app/",
     {

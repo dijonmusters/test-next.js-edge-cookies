@@ -1,17 +1,21 @@
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+import wait from "./wait";
 
 class MyClass {
   constructor(protected context: { cookies: () => ReadonlyRequestCookies }) {}
 
-  public getCookie(name: string) {
+  public async getCookie(name: string) {
+    await wait(1000);
     return this.context.cookies().get(name)?.value;
   }
 
-  public setCookie(name: string, value: string) {
+  public async setCookie(name: string, value: string) {
+    await wait(1000);
     return this.context.cookies().set(name, value);
   }
 
-  public deleteCookie(name: string) {
+  public async deleteCookie(name: string) {
+    await wait(1000);
     return this.context.cookies().set(name, "", {
       maxAge: 0,
     });
